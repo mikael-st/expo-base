@@ -1,26 +1,27 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { EditItemPage } from '../screens/edit-item-page/EditItemPage';
-import { OrderPage } from '../screens/order-page/OrderPage';
+import { EditItemPage } from '../screens/EditItemPage/EditItemPage';
+import { OrderPage } from '../screens/OrderPage';
+import { SelectDeliveryLocal } from '../screens/SelectDeliveryLocal';
+import { createStaticNavigation } from '@react-navigation/native';
+import { MakingOrder } from '../screens/MakingOrder';
 
-const {Navigator, Screen} = createNativeStackNavigator();
+const Stack = createNativeStackNavigator({
+  screenOptions:{
+    headerShown: false
+  },
+  initialRouteName: 'MakingOrder',
+  screens: {
+    EditItemPage: EditItemPage,
+    MakingOrder: MakingOrder,
+    OrderPage: OrderPage,
+    SelectDeliveryLocal: SelectDeliveryLocal,
+  }
+});
+
+const Navigator = createStaticNavigation(Stack);
 
 export function Routes(){
   return (
-    <Navigator 
-      screenOptions={{headerShown:false}}
-      initialRouteName='order-page'
-    >
-      <Screen
-        name='edit-item-page'
-        component={EditItemPage}
-      />
-
-      <Screen
-        name='order-page'
-        component={OrderPage}
-      />
-
-    </Navigator>
-
+    <Navigator />
   );
 }

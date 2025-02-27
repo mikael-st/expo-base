@@ -21,12 +21,12 @@ export default function App() {
   })
 
   return (
-    <NavigationContainer>
+    <>
       {
         !fontsLoaded
         ? <Load />
         : <Routes />
       }
-    </NavigationContainer>
+    </>
   );
 }

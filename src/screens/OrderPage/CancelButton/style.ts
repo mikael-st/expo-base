@@ -1,15 +1,16 @@
 import styled from "styled-components/native";
-import { Palette } from "../../../assets/palette";
+import { Palette } from "../../../../assets/palette";
 
 export const Button = styled.TouchableOpacity`
-  padding: 12px;
-
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 
+  padding: 12px;
+
   border-radius: 12px;
 
-  background-color: ${Palette.blue};
+  background-color: ${Palette.red};
 
   margin: 0px 8px 8px 8px;
 `;

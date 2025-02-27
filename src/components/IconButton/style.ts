@@ -7,12 +7,15 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
 
   gap: 8px;
-  border: 1px solid ${Palette.gray};
+  
+  border-radius: 12px;
 
-  padding: 12px;
+  padding: 6px;
 
   align-items: center;
   justify-content: center;
+
+  background-color: ${ (props) => props.fill === true ? Palette.blue : 'none' };
 
   cursor: pointer;
 `;
