@@ -1,11 +1,11 @@
 import { Modal, Text, View } from "react-native";
 import { Close, Container, Content, Title } from "./style";
-import { CheckCircleIcon } from "react-native-heroicons/outline";
+import { CheckCircleIcon, XCircleIcon } from "react-native-heroicons/outline";
 import { Palette } from "../../../../assets/palette";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import { IconButton } from "../../IconButton";
 
-export function SuccessOrderModal(
+export function CancelOrderModal(
   props: {
     visible: boolean,
     onClose: Function
@@ -26,11 +26,11 @@ export function SuccessOrderModal(
             />
           </Close>
             
-          <CheckCircleIcon
-            color={Palette.blue}
+          <XCircleIcon
+            color={Palette.red}
             size={76}
           />
-          <Title>Pedido realizado com sucesso!</Title>
+          <Title>Pedido cancelado!</Title>
         </Content>
       </Container>
     </Modal>

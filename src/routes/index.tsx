@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator({
   screenOptions:{
     headerShown: false
   },
-  initialRouteName: 'MakingOrder',
+  initialRouteName: 'EditItemPage',
   screens: {
     EditItemPage: EditItemPage,
     MakingOrder: MakingOrder,

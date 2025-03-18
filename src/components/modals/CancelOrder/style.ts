@@ -32,5 +32,5 @@ export const Close = styled.View`
 
 export const Title = styled.Text`
   font-family: 'Poppins_600SemiBold';
-  color: ${Palette.blue};
+  color: ${Palette.red};
 `

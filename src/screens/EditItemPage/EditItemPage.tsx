@@ -9,8 +9,11 @@ import { PriceInput } from "../../components/PriceInput";
 import { TextButton } from "../../components/TextButton";
 import { useRef, useState } from "react";
 import { InputField } from "../../components/TextField/style";
+import { useNavigation } from "@react-navigation/native";
 
 export function EditItemPage() {
+  const navigator = useNavigation();
+
   const [ name, setName ] = useState('');
   const [ description, setDescription ] = useState('');
   const [ price, setPrice ] = useState(0);
@@ -25,6 +28,7 @@ export function EditItemPage() {
     console.log(newItem);
     console.log('SAVE NEW INFOS ABOUT ITEM');
   
+    navigator.navigate('MakingOrder');
   }
 
   const Content = () => {

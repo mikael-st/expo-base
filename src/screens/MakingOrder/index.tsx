@@ -13,9 +13,21 @@ import { PriceDetailsSection } from "./PriceDetailsSection";
 import { CupomField } from "../../components/CupomField";
 import { FowardButton } from "./FowardButton";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { CancelOrderModal } from "../../components/modals/CancelOrder";
 
 export function MakingOrder() {
   const navigator = useNavigation();
+
+  const [ modalVisible, setModalVisible ] = useState(false);
+    
+  const closeModal = () => {
+    setModalVisible(false);
+
+    navigator.navigate('EditItemPage');
+  }
+
+  const items = [1,2,3,4,5]
 
   const Content = () => {
     return (
@@ -26,25 +38,19 @@ export function MakingOrder() {
             <IconButton
               icon={<TrashIcon color={Palette.red}/>}
               label="Cancelar"
-              onClick={() => { console.log('CANCEL ORDER');}}
+              onClick={() => {
+                console.log('CANCEL ORDER');
+                setModalVisible(true)
+              }}
             />
           </SectionHeader>
           <OrderDetails/>
           <SectionHeader>
             <Title>Itens</Title>
           </SectionHeader>
-          <ItemDetails
-            withRemoveBtn={true}
-          />
-          <ItemDetails
-            withRemoveBtn={true}
-          />
-          <ItemDetails
-            withRemoveBtn={true}
-          />
-          <ItemDetails
-            withRemoveBtn={true}
-          />
+          
+          {items.map((value) => <ItemDetails withRemoveBtn={true} key={value}/>)}
+
           <PriceDetailsSection/>
           <CupomField/>
         </Container>
@@ -57,6 +63,10 @@ export function MakingOrder() {
       <SafeAreaView>
         <Container>
           <Logo />
+          <CancelOrderModal
+            visible={modalVisible}
+            onClose={closeModal}
+          />
           <Content />
           <FowardButton
             onClick={() => {

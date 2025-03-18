@@ -38,13 +38,15 @@ export function ImageSelector(
   return (
     <Pressable onPress={() => pickImage()}>
       <Container>
-      {props.source === undefined
-        ? <CameraIcon color={Palette.dark_gray} size={42}/>
-        : <Image source={{
-          uri: props.source
-        }}/>
-      }
-    </Container>
+        {path === ''
+          ? <CameraIcon color={Palette.dark_gray} size={42}/>
+          : <Image 
+            source={{
+              uri: path
+            }}
+            style={{ width: '100%', height: '100%',}}/>
+        }
+      </Container>
     </Pressable>
   )
 }
